@@ -1,0 +1,19 @@
+  
+    <ion-content class="scroll-content" scroll="false" >
+    <center>
+    <div class="contentwrapper">
+      <button class="button button-small button-balanced balance-btn" ng-click="scanqr()">SCAN QR</button>
+      <button class="button button-small balance-btn button-positive" ng-click="clip()" >CLIPBOARD</button>
+      <button class="button button-small balance-btn button-positive" ng-click="myaddress()" >MY ADDRESSES</button>
+      <h4>Manual Entry:</h4>
+      <input type="text" value="{{qraddr}}"/>
+      <h4>Enter Amount:</h4>
+      <input ng-model="curxpy" type="text"/>
+      <br>
+      <h4>{{curxpy*curRate}} {{curType}}</h4>
+      <h4 class="bitAllow" style="display:{{chkAllow}}">{{curxpy*btcRate}} BTC</h4>
+      <button class="button button-small button-balanced balance-btn" ng-click="sendMoney()" >SEND</button>
+    </div>
+    </center>
+    </ion-content>
+

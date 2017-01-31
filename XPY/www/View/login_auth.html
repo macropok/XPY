@@ -1,0 +1,15 @@
+<div class="container col-xs-12">
+    <form ng-submit="submit()">
+    
+    <input id="input_password" class="textbox" type="text" placeholder="Code" class="col-xs-10" ng-model="gcode" required> 
+    <br>
+    <div class="error">{{errormsg}}</div>
+    <br>
+    <center>
+        <button id="sub" class="btn_log button button-small button-balanced balance-btn pull-right" type="submit">LOGIN</button>
+        <button class="btn_log button button-small button-balanced balance-btn" ng-click="register()">BACK</button>
+        
+        <div>Developed by Team Paycoin.</div>
+    </center>
+    </form>
+</div>

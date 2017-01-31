@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+
+    
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/qrcode/lib/qrcode.min.js"></script>
+    <script type="text/javascript" src="lib/angular-qr/angular-qr.min.js"></script>
+    <script type="text/javascript" src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="css/tabSlideBox.css" rel="stylesheet"/>
+    <script src="js/tabSlideBox.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    </head>
+  <body ng-app="XPY">
+
+      <ion-header-bar class="header">
+        <h1 class="title"><img src="img/paycoinicon.png" alt="Log" /></h1>
+        <ion-tabs class="tabs-positive  tabs-top">
+
+          <ion-tab title="Transaction" href="/transactions">
+          
+            <!-- Tab 1 content -->
+          </ion-tab>
+
+          <ion-tab title="Balance" href="/balance">
+            <!-- Tab 2 content -->
+          </ion-tab>
+
+          <ion-tab title="Account" href="/accounts">
+            <!-- Tab 3 content -->
+          </ion-tab>
+          <ion-tab title="Address" href="/address">
+            <!-- Tab 3 content -->
+          </ion-tab>
+        </ion-tabs>
+       </ion-header-bar>
+
+
+
+
+
+<ion-view title="Scrollable Tabbed Slide box">
+        <ion-content scroll="false">
+            <tab-slide-box>
+            <div class="tsb-icons">
+              <div class="tsb-ic-wrp">
+              <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="ion-person1">Profile</a>
+              <a href="javascript:;" class="ion-heart1">Favourites</a>
+              <a href="javascript:;" class="ion-chatbubbles1">Chats</a>
+              <a href="javascript:;" class="ion-gear-b1">Settings</a>
+              <a href="javascript:;" class="ion-camera1">Photos</a>
+              <a href="javascript:;" class="ion-ios7-paw1">Pets</a>
+              </ion-scroll>
+            </div>
+            </div>
+              <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                  <ion-slide>
+                      <h3>Home content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Games content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Mail content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Car content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Profile content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Favourites content</h3>
+                  </ion-slide>
+            <ion-slide>
+                      <h3>Chats content</h3>
+                  </ion-slide>
+            <ion-slide>
+                      <h3>Settings content</h3>
+                  </ion-slide>
+            <ion-slide>
+                      <h3>Photos content</h3>
+                  </ion-slide>
+            <ion-slide>
+                      <h3>Pets content</h3>
+                  </ion-slide>
+              </ion-slide-box>
+            </tab-slide-box>
+        </ion-content>
+      </ion-view>
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

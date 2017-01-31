@@ -1,0 +1,110 @@
+.tabbed-slidebox .slider {
+    height: 100%;
+}
+.tabbed-slidebox.btm .slider {
+    margin-bottom: -50px;
+}
+.tabbed-slidebox .slider-slides {
+    width: 100%;
+}
+
+.tabbed-slidebox .slider-slide {
+    padding-top: 0px;
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    background : transparent;
+}
+
+.tabbed-slidebox .tsb-icons {
+    text-align: center;
+    margin: 10px 0;
+    position: relative;
+	background-color:#fff;
+}
+
+.tabbed-slidebox .tsb-ic-wrp {
+    display: flex;
+    position: relative;
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+	-webkit-transform:translate3d(0,0,0);
+}
+
+.tabbed-slidebox .tsb-icons a {
+    display: inline-block;
+    color: #0395b8;
+
+}
+
+.tabbed-slidebox .tsb-icons a.active {
+    color: rgba(0, 0, 0, 1);
+    font-size: 3.5em;
+	-webkit-transform:translate3d(0,0,0);
+}
+
+.tabbed-slidebox .tabbed-slidebox {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1.4em 1.4em 1.4em;
+    border-color: transparent transparent #0398dc transparent;
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -14px;
+    display: none;
+}
+.tsb-hscroll.scroll-view{
+  	white-space: nowrap;
+	margin:0 auto;
+}
+.tsb-hscroll.scroll-view .scroll-bar{
+	visibility:hidden;
+}
+.tsb-hscroll.scroll-view .scroll.onscroll{
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+.tabbed-slidebox .tsb-icons .scroll a{
+	width:150px;
+	font-size: 1em;
+	line-height: 2.0em;
+    font-weight: 700;
+	text-decoration: none;
+	margin: 0;
+	border-bottom: 3px solid transparent;
+}
+.myaddress a{
+    width:200px;
+}
+@media screen and (max-device-width : 450px) {
+    .tabbed-slidebox .tsb-icons .scroll a{
+        width: 33.33%;
+    }
+    .myaddress a{
+        width: 49.5% !important;
+    }
+    .myaddress{
+    margin: 0 !important;
+    width: 100%;
+    }
+    .myaddress .scroll{
+        width: 100% !important;
+    }
+}
+.tabbed-slidebox .tsb-icons .scroll a.active {
+    /*
+	font-size: 1.8em;
+	border-bottom: 3px solid #ccc;
+    */
+    background-color: #52c8eb !important;
+    color: #fff;
+}

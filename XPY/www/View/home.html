@@ -1,0 +1,154 @@
+<ion-content class="scroll-content" scroll="false" style="padding-top:100px">
+            <tab-slide-box>
+            <div class="tsb-icons">
+              <div class="tsb-ic-wrp">
+              <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="ion-person1">TRANSACTIONS</a>
+              <a href="javascript:;" class="ion-heart1">BALANCE</a>
+              <a href="javascript:;" class="ion-chatbubbles1">ACCOUNT</a>
+              <a href="javascript:;" class="ion-gear-b1">ADDRESS BOOK</a>
+              </ion-scroll>
+            </div>
+            </div>
+
+              <ion-slide-box active-slide="1" scroll="true" show-pager="false" on-slide-changed="slideHasChanged($index)">
+                  
+                    <ion-slide>
+
+                      <ion-content overflow-scroll="true">
+                        <div id="transtable">
+                          
+                          <div class="tb-body tb-addr" ng-repeat="item in items" style="font-size:80%; text-align:center; margin-bottom:1px solid;">
+                            <div class="col-xs-12">{{item.amount}}XPY - {{item.confirmations>4 ? 'Confirmed' : 'Confirming'}}, {{item.date}}</div>
+                          </div>
+                        </div>
+                        <br><br><br>
+                      </ion-content>
+                    </ion-slide>
+
+
+
+                  <ion-slide>
+                  <ion-content overflow-scroll="true">
+                      <center>
+
+                      <h3>{{balance.xpy}}XPY</h3>
+                      <h4>{{balance.currency}} {{balance.currencytype}}</h4>
+                      <h4 class="bitAllow" style="display:{{chkAllow}}">{{balance.btc}} BTC</h4>
+                      <div class="qrdiv">
+                        <qr id="balace_qr" class="qr-text" type-number="8" correction-level="'M'" input-mode="'auto'" text=
+                        "xpy.qrtext" image="true" size="100"></qr>
+                      </div>
+                      
+                      <h4 style="font-size:15px; display:inline-block">{{xpy.qrtext}}</h4><div ng-click="clipaddr()" style="display:inline-block"><img src="img/copy.png" width="20px" style="margin-left:5px;"  ></div>
+                      <div class="camera-wrapper" ng-click="cameratap()"><a><img src="img/camera.png" width="40px"></a></div>
+                      <button class="button button-small button-balanced balance-btn" ng-click="sendMoney()" >SEND</button>
+                      <button class="button button-small balance-btn button-positive" ng-click="receiveMoney()" >RECEIVE</button>
+                      </center>
+                      <br><br>
+                    </ion-contet>
+                  </ion-slide>
+
+                  <ion-slide class="account">
+                  <ion-content overflow-scroll="true">
+                    <div class="col-xs-12 account_wrapper" style="height: 510px;">
+                      <div class="col-xs-8">
+                        <div class="col-xs-4 type1" style="font-size:95%;">Username:</div><div class="col-xs-8 type2">{{username}}</div>
+                      </div>
+                      <div class="col-xs-4 avatar" style="float:right"><img src="{{gravatar}}" style="width : 100%;"></div>
+                      <div class="col-xs-8">
+                        <div class="col-xs-4 type1">Email:</div><div class="col-xs-8 type2">{{email}}</div>
+                      </div>
+                      
+                      <div class="col-xs-12">
+                        <div class="col-xs-3 type3">XPY:</div>
+                        <div class="col-xs-9 type4" style="font-size:12px;">{{xpy.qrtext}}</div>
+                      </div>
+                      <div class="col-xs-12" style="color:white">
+                          Allow Bitcoin Index : <input type="checkbox" ng-model="bitAllow" ng-change="bitchange(bitAllow)">
+                        </div>
+                      <div class="col-xs-12" style="color:white">
+                          Select Currency :
+                          <select style="color:black" ng-model="currency"
+                            ng-change="currencyChange(currency)" 
+                            ng-options="currency as currency.name for currency in  currencys"></select> 
+                         
+                        </div>
+                      <div class="account_content">               
+                        <div class="col-xs-12 about">
+                          <div style="margin-bottom:10px;"><div class="col-xs-4"></div><div class="col-xs-4 about_title">ABOUT US</div><div class="col-xs-4"></div></div><br><br>
+                          Development by Team Paycoin<br>
+                          <a href="http://www.teampaycoin.com">www.teampaycoin.com</a><br>
+                          Official Paycoin<br>
+                          <a href="http://www.paycoin.com">www.paycoin.com</a><br>
+                          Official Paycoin Wallet<br>
+                          <a href="http://wallet.paycoin.com">wallet.paycoin.com</a>
+                          <br><br>
+                          <img src= "img/thelionkingspons.png" style="width:150px"/>
+                        </div>
+                        
+                      </div>
+                      <div class="col-xs-4"></div><div class="col-xs-12 logout_label" ng-click="logout()">LOGOUT</div><div class="col-xs-4"></div>
+                    </div>
+                  </ion-content>
+                  </ion-slide>
+
+
+                  <ion-slide>
+                  <center>
+                      <button class="button button-small button-balanced balance-btn" ng-click="open()" style="z-index:999;" >ADD ADDRESS</button>
+                      <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                        <center><h2>Add Address</h2></center>
+                        </div>
+                        <div class="modal-body">
+                          <center>
+                          Scan Bitcoin address.<br>
+                          <button class="button button-primary" ng-click="scanadd()">SCAN</button>
+                          <br><br>
+                          Get Bitcoin address from clipboard.<br>
+                          <button id='btn_clipboard' ng-disabled="{{avclip}}" class="button button-primary" ng-click="getfromclip()">CLIPBOARD</button>
+                          </center>
+                        </div>
+                        <!--
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        </div>
+                        -->
+                    </script>
+                    <script type="text/ng-template" id="addAddress.html">
+                        <div class="modal-header">
+                        <center><h2>Enter Name</h2></center>
+                        </div>
+                        <div class="modal-body">
+                          
+                          <input type="text" ng-model="addName" class="addrdialog"><br>
+                          <center>
+                          <button id='btn_clipboard' ng-disabled="{{avclip}}" class="button button-primary" ng-click="addAddrName(addName)">Save</button>
+                          </center>
+                        </div>
+                        
+                    </script>
+
+                  <ion-content overflow-scroll="true" style="padding-top:50px !important;">
+
+                        <div id="addrtable">
+                          <div class="tb-head" style="height:20px;border-bottom: 1px solid;">
+                            <div class="col-xs-3">Name</div>
+                            <div class="col-xs-7">Address</div>
+                            <div class="col-xs-2">&nbsp;</div>
+                          </div>
+                          <div class="tb-body tb-addr" ng-repeat="item in addrs">
+                            <div class="col-xs-3">{{item.name}}</div>
+                            <div class="col-xs-7">{{item.addr}}</div>
+                            <div class="col-xs-2" ng-click="deladdr(item.addr)"><img src="img/trash.png" width="20"></div>
+                          </div>
+                        </div>
+                        <br><br><br>
+                      </ion-content>
+                  </center>
+                  </ion-slide>          
+              </ion-slide-box>
+            </tab-slide-box>
+        </ion-content>

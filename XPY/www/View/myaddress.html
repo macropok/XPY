@@ -1,0 +1,45 @@
+<ion-content class="scroll-content" scroll="false" style="">
+    <tab-slide-box>
+    <div class="tsb-icons">
+      <div class="tsb-ic-wrp">
+      <ion-scroll direction="x" class="tsb-hscroll myaddress">
+      <a href="javascript:;" class="ion-person1">MY ACCOUNTS</a>
+      <a href="javascript:;" class="ion-heart1">ADDRESS BOOK</a>
+      </ion-scroll>
+    </div>
+    </div>
+      <ion-slide-box active-slide="1" show-pager="false" on-slide-changed="slideHasChanged($index)" style="margin-top:-8px;">
+          
+          <ion-slide disable-scroll="true">
+          <ion-content  overflow-scroll="true" style="padding-top:0px;">
+            <center>
+              
+              <div style="margin-top:10px;background:white; padding:10px; width:95%; border-radius:5px;color:#0395b8;">
+		            <div style="width:49%;display:inline-block;vertical-align:top;"  ng-click="retrieveaddr(qrcode)">{{username}}</div>
+		            <div style="width:49%;display:inline-block;"  ng-click="retrieveaddr(qrcode)">{{qrcode}}</div>
+	        	  </div>
+            </center>
+          	<br>
+          	<br>
+          </ion-content>
+          </ion-slide>
+          <ion-slide>
+              <ion-content overflow-scroll="true" style="padding-top:10px !important;">
+
+                <div id="addrtable">
+                  <div class="tb-head" style="height:20px;border-bottom: 1px solid;">
+                    <div class="col-xs-4">Name</div>
+                    <div class="col-xs-8">Address</div>
+                    
+                  </div>
+                  <div class="tb-body tb-addr" ng-repeat="item in addrs">
+                    <div class="col-xs-4" ng-click="retrieveaddr(item.addr)">{{item.name}}</div>
+                    <div class="col-xs-8" ng-click="retrieveaddr(item.addr)">{{item.addr}}</div>
+                  </div>
+                </div>
+                <br><br><br>
+              </ion-content>
+          </ion-slide>
+      </ion-slide-box>
+    </tab-slide-box>
+</ion-content>

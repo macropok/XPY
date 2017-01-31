@@ -1,0 +1,17 @@
+  <ion-content  has-bouncing="false" scroll="false" style="padding-top:130px;">
+    
+    <center>
+    <div class="qrdiv1 bright{{type}}"  ng-click="changebright(this)">
+      <qr class="qr-text" type-number="8" correction-level="'M'" input-mode="'auto'" text="qrtext" image="true" size="150"></qr>
+    </div>
+    <br>
+    Tapping the QR code may improve scanning.
+    <h4 style="font-size:15px">{{qrtext}}</h4>
+
+    <h4>Optional Amount:</h4>
+      <input type="text"/>
+    <br>
+    <!--<button class="button button-small balance-btn button-positive" ng-click="captureVideo()" >Share Bitcoin Address</button>-->
+    <button class="button button-small balance-btn button-positive" ng-click="captureVideo()" >Copy to Clipboard</button>
+    </center>
+  </ion-content>

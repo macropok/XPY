@@ -1,0 +1,20 @@
+<ion-view view-title="gsdf">
+  
+  <ion-content class="main-content" has-bouncing="true">
+    
+    <ion-list>
+
+      <ion-item nav-clear menu-close ng-repeat="friend in friends" ng-class="menu.style">
+        <img width="64px" ng-src="{{friend.avatar_image}}">
+        <div>
+          <span>{{friend.name}}</span><br/>
+          <span>{{friend.stars}}</span>
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+    <button class="button button-block button-positive" ng-click="captureVideo()" style="visibility: {{nextVisibility}};">Next</button>
+
+  </ion-content>
+</ion-view>
